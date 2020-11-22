@@ -92,6 +92,7 @@ views:
           - type: 'custom:button-card'
             entity: switch.safe_router
             show_name: false
+            size: 25%
             state:
               - value: 'off'
                 color: red

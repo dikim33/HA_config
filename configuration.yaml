@@ -91,4 +91,4 @@ camera:
     name: Office Camera Test
     still_image_url: http://homes.sice.indiana.edu/dikim/wyze_logo.jpeg
     # still_image_url: https://images-na.ssl-images-amazon.com/images/I/61B04f0ALWL._AC_SL1500_.jpg
-    stream_source: rtsp://wyzeadmin:CNw4YBLa@192.168.1.25/live
+    stream_source: !secret wyze_resource
