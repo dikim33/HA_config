@@ -1,0 +1,18 @@
+- id: '1605390167641'
+  name: Router Lock
+  entities:
+    script.router_on:
+      last_triggered: '2020-11-14T21:27:21.737439+00:00'
+      mode: single
+      current: 0
+      friendly_name: Router Lock
+      state: 'off'
+- id: '1605390332868'
+  name: Router Unlock
+  entities:
+    script.router_off:
+      last_triggered: '2020-11-14T21:27:05.676755+00:00'
+      mode: single
+      current: 0
+      friendly_name: Router Unlock
+      state: 'off'

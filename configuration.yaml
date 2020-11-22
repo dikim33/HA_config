@@ -1,0 +1,94 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+homeassistant:
+  name: DongInn's Home Automation
+  latitude: 39.130203
+  longitude: -86.518952
+  elevation: 430
+  unit_system: imperial  # metric
+  time_zone: America/Indianapolis
+  external_url: "https://dikim33.duckdns.org"
+  internal_url: "http://homeassistant.local:8123"
+# http:
+#   external_url: dikim33.duckdns.org
+#   internal_url: homeassistant.local
+#   server_port: 8123
+
+# http:
+#   ssl_certificate: /root/ssl/fullchain.pem
+#   ssl_key: /root/ssl/privkey.pem
+
+# Text to speech
+
+# browser_mod:
+#   prefix: "bm_"
+
+# Example configuration.yaml entry
+lovelace:
+  mode: yaml
+
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+switch: !include switches.yaml
+
+
+# automation manual: !include_dir_named automations/
+
+# configuration.yaml entry
+hello_mqtt:
+  topic: some_mqtt/topic/here
+  
+  
+# configuration.yaml entry
+# hello_service:
+  
+# Example configuration.yaml entry
+mqtt:
+  broker: 127.0.0.1
+  
+# Example configuration.yaml entry with automatic discovery enabled (by explicitly setting the discovery configuration item)
+wemo:
+  discovery: true
+
+
+# Example configuration.yaml entry
+logger:
+  default: info
+  logs:
+    homeassistant.components.yamaha: critical
+    custom_components.my_integration: critical
+    nest: debug
+
+python_script:
+#  service: python_scripts.turn_on_light
+#    data:
+#      entity_id: switch.donginn_room
+    
+#service: python_script.turn_on_light
+#  data:
+#    entity_id: light.bedroom
+#    rgb_color: [255, 0, 0]
+
+
+
+# Example configuration.yaml entry
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+  # Fields required by Device Access (SDM) API.  Otherwise, use legacy API.
+  project_id: !secret nest_project_id
+  subscriber_id: !secret nest_subscriber_id
+  
+camera:
+  - platform: generic
+    name: Office Camera Test
+    still_image_url: http://homes.sice.indiana.edu/dikim/wyze_logo.jpeg
+    # still_image_url: https://images-na.ssl-images-amazon.com/images/I/61B04f0ALWL._AC_SL1500_.jpg
+    stream_source: rtsp://wyzeadmin:CNw4YBLa@192.168.1.25/live

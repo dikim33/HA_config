@@ -1,0 +1,40 @@
+turn_on_wemo:
+  alias: Turn on Wemo
+  sequence:
+  - type: turn_on
+    device_id: 2732424e05024becb09869d0fca389d4
+    entity_id: switch.donginn_room
+    domain: switch
+  mode: single
+turn_off_wemo:
+  alias: Turn off Wemo
+  mode: single
+  sequence:
+  - device_id: 2732424e05024becb09869d0fca389d4
+    domain: switch
+    entity_id: switch.donginn_room
+    type: turn_off
+router_control:
+  alias: Router
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: hass/router/pi
+      payload: Toggle
+  mode: single
+router_on:
+  alias: Router Lock
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: hass/router/pi
+      payload: 'ON'
+  mode: single
+router_off:
+  alias: Router Unlock
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: hass/router/pi
+      payload: 'OFF'
+  mode: single

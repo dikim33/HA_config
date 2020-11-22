@@ -1,0 +1,13 @@
+www
+tts
+home-assistant.log
+home-assistant_v2.db
+deps
+appdaemon
+.storage
+.cloud
+.HA_VERSION
+__pycache__
+hacs
+browser_mod
+secrets.yaml

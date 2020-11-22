@@ -1,0 +1,41 @@
+# Example configuration.yaml entry
+  - platform: mqtt
+    unique_id: donginn_room
+    name: "Bedroom Switch"
+    state_topic: "home/bedroom/switch1"
+    command_topic: "home/bedroom/switch1/set"
+    availability:
+      - topic: "home/bedroom/switch1/available"
+    payload_on: "ON"
+    payload_off: "OFF"
+    state_on: "ON"
+    state_off: "OFF"
+    optimistic: false
+    qos: 0
+    retain: true
+    
+  - platform: mqtt
+    unique_id: safe_router
+    name: "Safe Router"
+    state_topic: "hass/router/pi"
+    command_topic: "hass/router/pi"
+    payload_on: "ON"
+    payload_off: "OFF"
+    state_on: "ON"
+    state_off: "OFF"
+    optimistic: false
+    qos: 2
+    retain: false
+    
+
+
+# switch:
+#   - platform: template
+#     switches:
+#       smart_router:
+#         turn_on:
+#          service: script.router_on
+#         turn_off:
+#           service: script.router_off
+#         friendly_name: "Router Lock / Unlock"
+#         value_template: "{{ is_state('input_boolean.router', 'on') }}"

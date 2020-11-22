@@ -1,0 +1,30 @@
+- alias: Toggle Room Light
+  trigger:
+    platform: mqtt
+    topic: hass/light/Room
+    payload: Toggle
+  action:
+    service: switch.toggle
+    entity_id: switch.donginn_room
+  id: 297fc23d6ae245ecbd504b6908d3cebf
+- alias: Lock / Unlock Router
+  trigger:
+    platform: state
+    entity_id: input_boolean.router
+  action:
+    service_template: script.router_{{trigger.to_state.state}}
+  id: e41e7967ea2f4d63ae036306c1492d96
+- id: '1605748088286'
+  alias: Notify for the new release
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.updater
+    to: 'on'
+  condition: []
+  action:
+  - service: persistent_notification.create
+    data:
+      title: Update Ready
+      message: You can now update Home Assistant
+  mode: single

@@ -1,0 +1,53 @@
+entrance:
+  name: Living Room
+  entities:
+    - binary_sensor.front_door_ding
+    - binary_sensor.front_door_motion
+    - sensor.front_door_last_activity
+    - sensor.front_door_last_ding
+    - sensor.front_door_last_motion
+    - sensor.front_door_volume
+    - camera.front_door
+study_room:
+  name: Study Room
+  entities:
+    - camera.office_camera_test
+    - switch.donginn_room
+    - sensor.mfc_465cn_status
+    - sensor.mfc_465cn_page_counter
+    - sensor.mfc_465cn_black_ink_remaining
+    - sensor.mfc_465cn_cyan_ink_remaining
+    - sensor.mfc_465cn_magenta_ink_remaining
+    - sensor.mfc_465cn_yellow_ink_remaining
+    - sensor.mfc_465cn_uptime
+    - sensor.r7000_gateway_b_sent
+    - sensor.r7000_gateway_packets_received
+    - sensor.r7000_gateway_packets_sent
+    - sensor.r7000_gateway_kib_s_received
+    - sensor.r7000_gateway_kib_s_sent
+    - sensor.r7000_gateway_packets_s_received
+    - sensor.r7000_gateway_packets_s_sent
+    - sensor.r7000_gateway_b_received
+
+family_room:
+  name: Family Room
+  entities:
+    - sensor.hp_officejet_pro_8600_black_ink
+    - sensor.hp_officejet_pro_8600_cyan_ink
+    - sensor.hp_officejet_pro_8600_magenta_ink
+    - sensor.hp_officejet_pro_8600_yellow_ink
+    - sensor.hp_officejet_pro_8600
+
+iot_control:
+  name: IoT Control
+  entities:
+    - weather.home
+    - switch.safe_router
+    - hello_mqtt.last_message
+
+hallway:
+  name: Hallway
+  entities:
+    - climate.nest_thermostat
+    - sensor.nest_thermostat_humidity
+    - sensor.nest_thermostat_temperature
