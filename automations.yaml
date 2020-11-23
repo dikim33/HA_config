@@ -7,13 +7,14 @@
     service: switch.toggle
     entity_id: switch.donginn_room
   id: 297fc23d6ae245ecbd504b6908d3cebf
-- alias: Lock / Unlock Router
+- id: e41e7967ea2f4d63ae036306c1492d96
+  alias: Lock / Unlock Router
   trigger:
-    platform: state
+  - platform: state
     entity_id: input_boolean.router
   action:
-    service_template: script.router_{{trigger.to_state.state}}
-  id: e41e7967ea2f4d63ae036306c1492d96
+  - service_template: script.router_{{trigger.to_state.state}}
+  mode: single
 - id: '1605748088286'
   alias: Notify for the new release
   description: ''
@@ -27,4 +28,33 @@
     data:
       title: Update Ready
       message: You can now update Home Assistant
+  mode: single
+- id: '1606088244946'
+  alias: Lock Smart Router
+  description: Lock from 10pm to 8am
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition:
+  - condition: time
+    after: '22:00:00'
+    before: 08:00:00
+  action:
+  - service: mqtt.publish
+    data:
+      payload: 'ON'
+      topic: hass/router/pi
+  mode: single
+- id: '1606102546391'
+  alias: Unlock Smart Router
+  description: Open the join access to Smart Router
+  trigger:
+  - platform: time
+    at: 09:00:00
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      payload: 'OFF'
+      topic: hass/router/pi
   mode: single

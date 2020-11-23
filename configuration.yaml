@@ -76,8 +76,15 @@ python_script:
 #    entity_id: light.bedroom
 #    rgb_color: [255, 0, 0]
 
+wake_on_lan:
 
-
+# Example configuration.yaml entry
+samsungtv:
+  - host: 192.168.1.26
+    turn_on_action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: "5c:a3:9d:58:54:8a"
 # Example configuration.yaml entry
 nest:
   client_id: !secret nest_client_id
