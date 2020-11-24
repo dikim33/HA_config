@@ -58,3 +58,16 @@
       payload: 'OFF'
       topic: hass/router/pi
   mode: single
+- id: '1606246133516'
+  alias: Check the router state when HA restarts
+  description: Get the existing state when home assistant restarts
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      payload: Check
+      topic: hass/router/pi
+  mode: single

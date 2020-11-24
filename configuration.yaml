@@ -85,6 +85,10 @@ samsungtv:
       - service: wake_on_lan.send_magic_packet
         data:
           mac: "5c:a3:9d:58:54:8a"
+          
+device_tracker:
+  - platform: bluetooth_tracker
+  
 # Example configuration.yaml entry
 nest:
   client_id: !secret nest_client_id
