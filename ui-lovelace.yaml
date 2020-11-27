@@ -112,3 +112,9 @@ views:
       - type: entities
         entities:
           - sensor.office_temperature
+      - type: entities
+        entities:
+          - card:
+            entity: cover.double
+        title: Garage
+

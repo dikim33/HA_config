@@ -30,7 +30,7 @@
       message: You can now update Home Assistant
   mode: single
 - id: '1606088244946'
-  alias: Lock Smart Router
+  alias: Lock Smart Router at 10pm
   description: Lock from 10pm to 8am
   trigger:
   - platform: time
@@ -70,4 +70,33 @@
     data:
       payload: Check
       topic: hass/router/pi
+  mode: single
+- id: '1606364765580'
+  alias: Close garage door at 10:00
+  description: Make sure that the garage door is close at 10pm
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition:
+  - condition: state
+    entity_id: cover.double
+    state: open
+  action:
+  - service: mqtt.publish
+    data:
+      payload: CLOSE
+      topic: sensor/garage/action1
+  mode: single
+- id: '1606422593330'
+  alias: Close garage door when HA restarts
+  description: Make sure that the garage door is closed when home assistant restarts
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      payload: CLOSE
+      topic: sensor/garage/action1
   mode: single
