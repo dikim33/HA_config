@@ -43,7 +43,6 @@ iot_control:
   entities:
     - weather.home
     - switch.safe_router
-    - hello_mqtt.last_message
 
 hallway:
   name: Hallway
