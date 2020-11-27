@@ -112,9 +112,13 @@ views:
       - type: entities
         entities:
           - sensor.office_temperature
-      - type: entities
-        entities:
-          - card:
-            entity: cover.double
-        title: Garage
-
+      - type: entity-button
+        name: Garage
+        tap_action:
+          action: call-service
+          service: homeassistant.turn_on
+          service_data:
+            entity_id: switch.garage_door_switch
+        hold_action:
+          action: more-info
+        entity: binary_sensor.garage_door_sensor
