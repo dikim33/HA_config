@@ -12,3 +12,17 @@ doss_soundbox:
   icon:
   picture:
   track: true
+
+lg_k30:
+  name: LG K30
+  mac: BT_00:57:C1:01:2C:9E
+  icon:
+  picture:
+  track: true
+
+crest_macbook_pro:
+  name: CREST MacBook Pro
+  mac: BT_3C:15:C2:E4:96:DD
+  icon:
+  picture:
+  track: true
