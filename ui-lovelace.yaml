@@ -1,7 +1,4 @@
 title: DongInn's Home Automation
-resources:
-  - url: /local/button-card.js
-    type: module
 
 button_card_templates:
   header:
@@ -112,6 +109,8 @@ views:
       - type: entities
         entities:
           - sensor.office_temperature
+      - type: media-control
+        entity: media_player.samsung_un32eh5300
       - type: entity-button
         name: Garage
         tap_action:
@@ -122,3 +121,87 @@ views:
         hold_action:
           action: more-info
         entity: binary_sensor.garage_door_sensor
+  - path: test
+    title: Test
+    cards:
+      - type: picture-entity
+        entity: camera.front_door
+      - type: entities
+        entities:
+          - binary_sensor.front_door_ding
+          - binary_sensor.front_door_motion
+          - sensor.front_door_last_activity
+          - sensor.front_door_last_ding
+          - sensor.front_door_last_motion
+          - sensor.front_door_volume
+      - type: entities
+        entities:
+          - sensor.nest_thermostat_humidity
+          - sensor.nest_thermostat_temperature
+        title: Hallway
+      - type: picture-entity
+        entity: camera.office_camera_test
+      - type: weather-forecast
+        entity: weather.home
+        show_forecast: false
+      - type: entities
+        entities:
+          - type: 'custom:button-card'
+            entity: switch.safe_router
+            show_name: false
+            size: 25%
+            state:
+              - value: 'off'
+                color: red
+                icon: mdi:lock-open
+              - value: 'on'
+                color: green
+                icon: mdi:lock
+          - card:
+            entity: switch.safe_router
+            name: 'Unlock / Lock'
+          - type: weblink
+            name: Manage Attached Devices
+            url: 'http://pipact1.local:8080/'
+            icon: 'mdi:lan'
+        title: Safe Router
+        show_header_toggle: false
+      - type: entities
+        entities:
+          - sensor.office_temperature
+      - type: media-control
+        entity: media_player.samsung_un32eh5300
+      - type: entity-button
+        name: Garage
+        tap_action:
+          action: call-service
+          service: homeassistant.turn_on
+          service_data:
+            entity_id: switch.garage_door_switch
+        hold_action:
+          action: more-info
+        entity: binary_sensor.garage_door_sensor
+  - path: main
+    title: Main
+    cards:
+      - type: picture-entity
+        entity: camera.front_door
+      - type: vertical-stack
+        cards:
+          - type: thermostat
+            entity: climate.nest_thermostat
+          - type: entities
+            entities:
+              - sensor.nest_thermostat_humidity
+              - sensor.nest_thermostat_temperature
+            title: Hallway
+          - type: entity-button
+            name: Garage
+            tap_action:
+              action: call-service
+              service: homeassistant.turn_on
+              service_data:
+                entity_id: switch.garage_door_switch
+            hold_action:
+              action: more-info
+            entity: binary_sensor.garage_door_sensor
