@@ -29,7 +29,9 @@ homeassistant:
 # Example configuration.yaml entry
 lovelace:
   mode: yaml
-
+  resources:
+    - url: /local/button-card.js
+      type: module
 tts:
   - platform: google_translate
 

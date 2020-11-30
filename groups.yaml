@@ -50,3 +50,4 @@ hallway:
     - climate.nest_thermostat
     - sensor.nest_thermostat_humidity
     - sensor.nest_thermostat_temperature
+    
