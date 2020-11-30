@@ -72,20 +72,20 @@
       topic: hass/router/pi
   mode: single
 - id: '1606364765580'
-  alias: Close garage door at 10:00
-  description: Make sure that the garage door is close at 10pm
+  alias: Close garage door at 10:01
+  description: Make sure that the garage door is close at 10:01pm
   trigger:
   - platform: time
-    at: '22:00:00'
+    at: '22:01:00'
   condition:
   - condition: state
-    entity_id: cover.double
-    state: open
+    entity_id: binary_sensor.garage_door_sensor
+    state: 'on'
   action:
-  - service: mqtt.publish
-    data:
-      payload: CLOSE
-      topic: sensor/garage/action1
+  - type: turn_on
+    device_id: b2cf2c4ef94bf1573b643d0a88008daf
+    entity_id: switch.garage_door_switch
+    domain: switch
   mode: single
 - id: '1606422593330'
   alias: Close garage door when HA restarts
