@@ -128,13 +128,8 @@ apple_tv:
     login_id: dikim33@gmail.com
     name: DK
     start_off: true
-    credentials: ***REMOVED***
+    credentials: !secret apple_password
 
-# media_player:
-#   - platform: alexa
-#     email: "dikim33@gmail.com"
-#     password: "***REMOVED***"
-#     url: "amazon.com"
 
 media_player:
   - platform: vlc
