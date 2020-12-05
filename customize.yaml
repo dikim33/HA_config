@@ -1,0 +1,72 @@
+sensor.us_coronavirus_confirmed:
+  friendly_name: C19 Confirmed
+sensor.us_coronavirus_current:
+  friendly_name: C19 Current
+sensor.us_coronavirus_deaths:
+  friendly_name: C19 Deaths
+sensor.us_coronavirus_recovered:
+  friendly_name: C19 Recovered
+  
+person.donginn_kim:
+  image: /local/dk.jpg
+  
+sensor.r7000_gateway_b_received:
+  friendly_name: Received
+sensor.r7000_gateway_b_sent:
+  friendly_name: Sent
+sensor.r7000_gateway_kib_s_received:
+  friendly_name: Received
+sensor.r7000_gateway_kib_s_sent:
+  friendly_name: Sent
+sensor.r7000_gateway_packets_received:
+  friendly_name: Received
+sensor.r7000_gateway_packets_sent:
+  friendly_name: Sent
+sensor.r7000_gateway_packets_s_received:
+  friendly_name: Received
+sensor.r7000_gateway_packets_s_sent:
+  friendly_name: Sent
+  
+sensor.mfc_465cn_status:
+  friendly_name: Status
+sensor.mfc_465cn_page_counter:
+  friendly_name: Page Counter
+sensor.mfc_465cn_black_ink_remaining:
+  friendly_name: Black
+sensor.mfc_465cn_cyan_ink_remaining:
+  friendly_name: Cyan
+sensor.mfc_465cn_magenta_ink_remaining:
+  friendly_name: Magenta
+sensor.mfc_465cn_yellow_ink_remaining:
+  friendly_name: Yellow
+sensor.mfc_465cn_uptime:
+  friendly_name: Uptime
+  
+sensor.hp_officejet_pro_8600_black_ink:
+  friendly_name: Black
+sensor.hp_officejet_pro_8600_cyan_ink:
+  friendly_name: Cyan
+sensor.hp_officejet_pro_8600_magenta_ink:
+  friendly_name: Magenta
+sensor.hp_officejet_pro_8600_yellow_ink:
+  friendly_name: Yellow
+sensor.hp_officejet_pro_8600:
+  friendly_name: Status
+  
+sensor.nest_thermostat_humidity:
+  friendly_name: Humidity
+sensor.nest_thermostat_temperature:
+  friendly_name: Temperature
+  
+binary_sensor.front_door_ding:
+  friendly_name: Ding
+binary_sensor.front_door_motion:
+  friendly_name: Motion
+sensor.front_door_last_activity:
+  friendly_name: Last Activity
+sensor.front_door_last_ding:
+  friendly_name: Last Ding
+sensor.front_door_last_motion:
+  friendly_name: Last Motion
+sensor.front_door_volume:
+  friendly_name: Volume

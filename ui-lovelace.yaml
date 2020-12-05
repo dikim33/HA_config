@@ -1,5 +1,6 @@
 title: DongInn's Home Automation
 
+
 button_card_templates:
   header:
     styles:
@@ -16,6 +17,12 @@ button_card_templates:
         - color: var(--primary-background-color)
         - justify-self: start
         - font-weight: bold
+
+
+resources:
+  - url: /local/vertical-stack-in-card.js?v=0.3.3
+    type: js
+
 views:
   - path: default_view
     title: Home
@@ -35,92 +42,128 @@ views:
       - entity: sensor.office_last_motion
       - entity: sun.sun
     cards:
-      - type: picture-entity
-        entity: camera.front_door
-      - type: entities
-        entities:
-          - binary_sensor.front_door_ding
-          - binary_sensor.front_door_motion
-          - sensor.front_door_last_activity
-          - sensor.front_door_last_ding
-          - sensor.front_door_last_motion
-          - sensor.front_door_volume
-      - type: entities
-        entities:
-          - sensor.hp_officejet_pro_8600_black_ink
-          - sensor.hp_officejet_pro_8600_cyan_ink
-          - sensor.hp_officejet_pro_8600_magenta_ink
-          - sensor.hp_officejet_pro_8600_yellow_ink
-          - sensor.hp_officejet_pro_8600
+      - type: vertical-stack
+        cards:
+          - type: picture-entity
+            entity: camera.front_door
+          - type: entities
+            entities:
+              - binary_sensor.front_door_ding
+              - binary_sensor.front_door_motion
+              - sensor.front_door_last_activity
+              - sensor.front_door_last_ding
+              - sensor.front_door_last_motion
+              - sensor.front_door_volume
+          - type: media-control
+            entity: media_player.samsung_un32eh5300
+          - type: entity-button
+            name: Garage
+            tap_action:
+              action: call-service
+              service: homeassistant.turn_on
+              service_data:
+                entity_id: switch.garage_door_switch
+            hold_action:
+              action: more-info
+            entity: binary_sensor.garage_door_sensor
+      - type: 'custom:vertical-stack-in-card'
         title: Family room
-      - type: thermostat
-        entity: climate.nest_thermostat
-      - type: entities
-        entities:
-          - switch.donginn_room
-          - sensor.mfc_465cn_status
-          - sensor.mfc_465cn_page_counter
-          - sensor.mfc_465cn_black_ink_remaining
-          - sensor.mfc_465cn_cyan_ink_remaining
-          - sensor.mfc_465cn_magenta_ink_remaining
-          - sensor.mfc_465cn_yellow_ink_remaining
-          - sensor.mfc_465cn_uptime
-          - sensor.r7000_gateway_b_sent
-          - sensor.r7000_gateway_packets_received
-          - sensor.r7000_gateway_packets_sent
-          - sensor.r7000_gateway_kib_s_received
-          - sensor.r7000_gateway_kib_s_sent
-          - sensor.r7000_gateway_packets_s_received
-          - sensor.r7000_gateway_packets_s_sent
-          - sensor.r7000_gateway_b_received
+        cards:
+          - type: entities
+            entities:
+              - sensor.hp_officejet_pro_8600
+              - sensor.hp_officejet_pro_8600_black_ink
+              - sensor.hp_officejet_pro_8600_cyan_ink
+              - sensor.hp_officejet_pro_8600_magenta_ink
+              - sensor.hp_officejet_pro_8600_yellow_ink            
+            title: HP8600 Printer
+            style: |
+              .card-header {
+                font-size: 18px;
+              }
+          - type: vertical-stack
+            cards:
+              - type: entities
+                entities:
+                  - sensor.office_temperature
+                title: Office
+              - type: picture-entity
+                entity: camera.office_camera_test
+              - type: iframe
+                url: http://office_temperature.local/
+                style: |
+                  #theiframe {
+                    height: 150px;
+                  }
+              - type: entities
+                entities:
+                  - type: 'custom:button-card'
+                    entity: switch.safe_router
+                    show_name: false
+                    size: 25%
+                    state:
+                      - value: 'off'
+                        color: red
+                        icon: mdi:lock-open
+                      - value: 'on'
+                        color: green
+                        icon: mdi:lock
+                  - card:
+                    entity: switch.safe_router
+                    name: 'Unlock / Lock'
+                  - type: weblink
+                    name: Manage Attached Devices
+                    url: 'http://pipact1.local:8080/'
+                    icon: 'mdi:lan'
+                title: Safe Router
+                show_header_toggle: false
+      - type: 'custom:vertical-stack-in-card'
         title: Study room
-      - type: entities
-        entities:
-          - sensor.nest_thermostat_humidity
-          - sensor.nest_thermostat_temperature
-        title: Hallway
-      - type: picture-entity
-        entity: camera.office_camera_test
-      - type: weather-forecast
-        entity: weather.home
-        show_forecast: false
-      - type: entities
-        entities:
-          - type: 'custom:button-card'
-            entity: switch.safe_router
-            show_name: false
-            size: 25%
-            state:
-              - value: 'off'
-                color: red
-                icon: mdi:lock-open
-              - value: 'on'
-                color: green
-                icon: mdi:lock
-          - card:
-            entity: switch.safe_router
-            name: 'Unlock / Lock'
-          - type: weblink
-            name: Manage Attached Devices
-            url: 'http://pipact1.local:8080/'
-            icon: 'mdi:lan'
-        title: Safe Router
-        show_header_toggle: false
-      - type: entities
-        entities:
-          - sensor.office_temperature
-      - type: media-control
-        entity: media_player.samsung_un32eh5300
-      - type: entity-button
-        name: Garage
-        tap_action:
-          action: call-service
-          service: homeassistant.turn_on
-          service_data:
-            entity_id: switch.garage_door_switch
-        hold_action:
-          action: more-info
-        entity: binary_sensor.garage_door_sensor
+        cards:
+          - type: entities
+            entities:
+              - sensor.mfc_465cn_status
+              - sensor.mfc_465cn_page_counter
+              - sensor.mfc_465cn_black_ink_remaining
+              - sensor.mfc_465cn_cyan_ink_remaining
+              - sensor.mfc_465cn_magenta_ink_remaining
+              - sensor.mfc_465cn_yellow_ink_remaining
+              - sensor.mfc_465cn_uptime
+            title: MFC465 Printer
+            style: |
+              .card-header {
+                font-size: 18px;
+              }
+          - type: entities
+            entities:
+              - sensor.r7000_gateway_b_received
+              - sensor.r7000_gateway_b_sent
+              - sensor.r7000_gateway_packets_received
+              - sensor.r7000_gateway_packets_sent
+              - sensor.r7000_gateway_kib_s_received
+              - sensor.r7000_gateway_kib_s_sent
+              - sensor.r7000_gateway_packets_s_received
+              - sensor.r7000_gateway_packets_s_sent
+            title: R7000 Router
+            style: |
+              .card-header {
+                font-size: 18px;
+              }
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - sensor.nest_thermostat_humidity
+              - sensor.nest_thermostat_temperature
+            title: NEST Thermostat
+          - type: thermostat
+            entity: climate.nest_thermostat
+          - type: weather-forecast
+            entity: weather.home
+            show_forecast: true
+          - type: iframe
+            url: https://embed.windy.com/embed2.html?lat=39.130203&lon=-86.518952&zoom=5&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-36.851&detailLon=174.768&metricWind=default&metricTemp=default&radarRange=-1
+            aspect_ratio: 80%
   - path: test
     title: Test
     cards:
@@ -143,7 +186,10 @@ views:
         entity: camera.office_camera_test
       - type: weather-forecast
         entity: weather.home
-        show_forecast: false
+        show_forecast: true
+      - type: iframe
+        url: https://embed.windy.com/embed2.html?lat=39.130203&lon=-86.518952&zoom=5&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-36.851&detailLon=174.768&metricWind=default&metricTemp=default&radarRange=-1
+        aspect_ratio: 80%        
       - type: entities
         entities:
           - type: 'custom:button-card'
@@ -181,6 +227,8 @@ views:
         hold_action:
           action: more-info
         entity: binary_sensor.garage_door_sensor
+      - type: iframe
+        url: http://office_temperature.local/
   - path: main
     title: Main
     cards:
@@ -205,3 +253,4 @@ views:
             hold_action:
               action: more-info
             entity: binary_sensor.garage_door_sensor
+

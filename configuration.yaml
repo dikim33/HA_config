@@ -11,6 +11,8 @@ homeassistant:
   time_zone: America/Indianapolis
   external_url: "https://dikim33.duckdns.org"
   internal_url: "http://homeassistant.local:8123"
+  customize: !include customize.yaml
+
 
 # http:
 #   external_url: dikim33.duckdns.org
@@ -32,6 +34,19 @@ lovelace:
   resources:
     - url: /local/button-card.js
       type: module
+    - url: /local/group-card.js
+      type: module
+    - url: /local/auto-entities.js
+      type: module
+    - url: /local/mini-media-player-bundle.js?v=1.11.0
+      type: module
+    - url: /local/custom-iframe-card.js
+      type: module
+    - url: /local/card-mod.js
+      type: module
+    - url: /local/vertical-stack-in-card.js
+      type: module
+      
 tts:
   - platform: google_translate
 
@@ -108,3 +123,19 @@ camera:
     stream_source: !secret wyze_resource
     
 
+apple_tv:
+  - host: 192.168.1.13
+    login_id: dikim33@gmail.com
+    name: DK
+    start_off: true
+    credentials: ***REMOVED***
+
+# media_player:
+#   - platform: alexa
+#     email: "dikim33@gmail.com"
+#     password: "***REMOVED***"
+#     url: "amazon.com"
+
+media_player:
+  - platform: vlc
+    name: speaker_1

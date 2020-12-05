@@ -13,30 +13,16 @@ study_room:
   entities:
     - camera.office_camera_test
     - switch.donginn_room
-    - sensor.mfc_465cn_status
-    - sensor.mfc_465cn_page_counter
-    - sensor.mfc_465cn_black_ink_remaining
-    - sensor.mfc_465cn_cyan_ink_remaining
-    - sensor.mfc_465cn_magenta_ink_remaining
-    - sensor.mfc_465cn_yellow_ink_remaining
-    - sensor.mfc_465cn_uptime
-    - sensor.r7000_gateway_b_sent
-    - sensor.r7000_gateway_packets_received
-    - sensor.r7000_gateway_packets_sent
-    - sensor.r7000_gateway_kib_s_received
-    - sensor.r7000_gateway_kib_s_sent
-    - sensor.r7000_gateway_packets_s_received
-    - sensor.r7000_gateway_packets_s_sent
-    - sensor.r7000_gateway_b_received
 
-family_room:
-  name: Family Room
+
+hp8600_printer:
+  name: HP8600 Printer
   entities:
+    - sensor.hp_officejet_pro_8600
     - sensor.hp_officejet_pro_8600_black_ink
     - sensor.hp_officejet_pro_8600_cyan_ink
     - sensor.hp_officejet_pro_8600_magenta_ink
     - sensor.hp_officejet_pro_8600_yellow_ink
-    - sensor.hp_officejet_pro_8600
 
 iot_control:
   name: IoT Control
@@ -51,3 +37,25 @@ hallway:
     - sensor.nest_thermostat_humidity
     - sensor.nest_thermostat_temperature
     
+r7000_router:
+  name: Router R7000
+  entities:
+    - sensor.r7000_gateway_b_received
+    - sensor.r7000_gateway_b_sent
+    - sensor.r7000_gateway_packets_received
+    - sensor.r7000_gateway_packets_sent
+    - sensor.r7000_gateway_kib_s_received
+    - sensor.r7000_gateway_kib_s_sent
+    - sensor.r7000_gateway_packets_s_received
+    - sensor.r7000_gateway_packets_s_sent
+
+mfc465_printer:
+  name: MFC465 Printer
+  entities:
+    - sensor.mfc_465cn_status
+    - sensor.mfc_465cn_page_counter
+    - sensor.mfc_465cn_black_ink_remaining
+    - sensor.mfc_465cn_cyan_ink_remaining
+    - sensor.mfc_465cn_magenta_ink_remaining
+    - sensor.mfc_465cn_yellow_ink_remaining
+    - sensor.mfc_465cn_uptime
