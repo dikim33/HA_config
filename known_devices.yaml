@@ -26,3 +26,10 @@ crest_macbook_pro:
   icon:
   picture:
   track: true
+
+airpods:
+  name: ' AirPods'
+  mac: BT_40:26:19:F0:BC:0F
+  icon:
+  picture:
+  track: true
