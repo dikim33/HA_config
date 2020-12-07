@@ -157,7 +157,6 @@ views:
               .card-header {
                 font-size: 18px;
               }
-            rgb_color: [255,255,0]  
       - type: vertical-stack
         cards:
           - type: entities
@@ -224,6 +223,8 @@ views:
       - type: entities
         entities:
           - sensor.office_temperature
+          - switch.donginn_room_3
+        title: Office
       - type: media-control
         entity: media_player.samsung_un32eh5300
       - type: entity-button
