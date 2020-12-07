@@ -70,3 +70,13 @@ sensor.front_door_last_motion:
   friendly_name: Last Motion
 sensor.front_door_volume:
   friendly_name: Volume
+  
+switch.donginn_room_3:
+  templates:
+    icon_color: >
+      if (state === 'on') return 'rgb(255,215,0)';
+      return 'grey';
+    # rgb_color: >
+    #   if (state ==  'on'){
+    #     return [255,255,0];
+    #   }

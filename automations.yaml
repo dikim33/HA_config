@@ -100,3 +100,18 @@
       payload: CLOSE
       topic: sensor/garage/action1
   mode: single
+- id: '1607305585230'
+  alias: Garage Door Notification
+  description: Send notification when garage door is open
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.garage_door_sensor
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_lm_x410um
+    data:
+      title: Garage door is open
+      message: Someone opened the garage door!
+  mode: single

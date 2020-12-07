@@ -149,6 +149,15 @@ views:
               .card-header {
                 font-size: 18px;
               }
+          - type: entities
+            entities:
+              - switch.donginn_room_3
+            title: Switch
+            style: |
+              .card-header {
+                font-size: 18px;
+              }
+            rgb_color: [255,255,0]  
       - type: vertical-stack
         cards:
           - type: entities
