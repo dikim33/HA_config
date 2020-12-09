@@ -62,10 +62,13 @@ views:
               action: call-service
               service: homeassistant.turn_on
               service_data:
-                entity_id: switch.garage_door_switch
+                entity_id: switch.garage_door_switch_2
             hold_action:
               action: more-info
-            entity: binary_sensor.garage_door_sensor
+            entity: binary_sensor.garage_door_sensor_2
+          - type: entities
+            entities:
+              - sensor.garage_temperature
       - type: 'custom:vertical-stack-in-card'
         title: Family room
         cards:
@@ -233,10 +236,13 @@ views:
           action: call-service
           service: homeassistant.turn_on
           service_data:
-            entity_id: switch.garage_door_switch
+            entity_id: switch.garage_door_switch_2
         hold_action:
           action: more-info
-        entity: binary_sensor.garage_door_sensor
+        entity: binary_sensor.garage_door_sensor_2
+      - type: entities
+        entities:
+          - sensor.garage_temperature
       - type: iframe
         url: http://office_temperature.local/
   - path: main

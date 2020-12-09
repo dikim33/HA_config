@@ -79,12 +79,12 @@
     at: '22:01:00'
   condition:
   - condition: state
-    entity_id: binary_sensor.garage_door_sensor
+    entity_id: binary_sensor.garage_door_sensor_2
     state: 'on'
   action:
   - type: turn_on
-    device_id: b2cf2c4ef94bf1573b643d0a88008daf
-    entity_id: switch.garage_door_switch
+    device_id: 836b6e49948ebe0f97e32736ac6fae3e
+    entity_id: switch.garage_door_switch_2
     domain: switch
   mode: single
 - id: '1606422593330'

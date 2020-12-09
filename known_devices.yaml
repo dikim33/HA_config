@@ -33,3 +33,10 @@ airpods:
   icon:
   picture:
   track: true
+
+sungahs_ipad:
+  name: SungAh’s iPad
+  mac: BT_E0:B5:5F:54:9D:0B
+  icon:
+  picture:
+  track: true
