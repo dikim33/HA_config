@@ -115,3 +115,41 @@
       title: Garage door is open
       message: Someone opened the garage door!
   mode: single
+- id: '1607847853851'
+  alias: Mailbox Notification
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: hass/mailbox/state
+    payload: New Mail
+  condition: []
+  action:
+  - service: persistent_notification.create
+    data:
+      notification_id: 1234
+      title: You have got a mail
+      message: New delivery is in the mailbox!
+  - service: notify.mobile_app_lm_x410um
+    data:
+      notification_id: 1234
+      title: You have got a mail
+      message: New delivery is in the mailbox!
+  mode: single
+- id: '1607878214267'
+  alias: Mailbox is checked
+  description: Empty the mailbox because you've got a mail
+  trigger:
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: persistent_notification
+      service: dismiss
+    context: {}
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: hass/mailbox/state
+      payload: Check
+      retain: false
+  mode: single

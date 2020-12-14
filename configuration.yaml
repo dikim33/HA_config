@@ -60,6 +60,7 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 switch: !include switches.yaml
+sensor: !include sensors.yaml
 
 
 # automation manual: !include_dir_named automations/

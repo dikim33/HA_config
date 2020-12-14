@@ -40,3 +40,17 @@ sungahs_ipad:
   icon:
   picture:
   track: true
+
+iphone:
+  name: iPhone
+  mac: BT_24:D0:DF:6C:CB:C9
+  icon:
+  picture:
+  track: true
+
+echo_show_5_chs:
+  name: Echo Show 5-CHS
+  mac: BT_68:DB:F5:21:50:1A
+  icon:
+  picture:
+  track: true

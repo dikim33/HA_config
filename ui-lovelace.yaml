@@ -28,18 +28,18 @@ views:
     title: Home
     badges:
       - entity: binary_sensor.updater
-      - entity: binary_sensor.office_ding
-      - entity: binary_sensor.office_motion
+      #- entity: binary_sensor.office_ding
+      #- entity: binary_sensor.office_motion
       - entity: person.donginn_kim
       - entity: sensor.us_coronavirus_confirmed
       - entity: sensor.us_coronavirus_current
       - entity: sensor.us_coronavirus_recovered
       - entity: sensor.us_coronavirus_deaths
-      - entity: sensor.office_battery
-      - entity: sensor.office_volume
-      - entity: sensor.office_last_activity
-      - entity: sensor.office_last_ding
-      - entity: sensor.office_last_motion
+      #- entity: sensor.office_battery
+      #- entity: sensor.office_volume
+      #- entity: sensor.office_last_activity
+      #- entity: sensor.office_last_ding
+      #- entity: sensor.office_last_motion
       - entity: sun.sun
     cards:
       - type: vertical-stack
@@ -69,6 +69,7 @@ views:
           - type: entities
             entities:
               - sensor.garage_temperature
+              - sensor.mailbox_template
       - type: 'custom:vertical-stack-in-card'
         title: Family room
         cards:
@@ -193,6 +194,8 @@ views:
           - sensor.nest_thermostat_humidity
           - sensor.nest_thermostat_temperature
         title: Hallway
+      - type: thermostat
+        entity: climate.nest_thermostat
       - type: picture-entity
         entity: camera.office_camera_test
       - type: weather-forecast
@@ -243,6 +246,7 @@ views:
       - type: entities
         entities:
           - sensor.garage_temperature
+          - sensor.mailbox_template
       - type: iframe
         url: http://office_temperature.local/
   - path: main
@@ -265,8 +269,11 @@ views:
               action: call-service
               service: homeassistant.turn_on
               service_data:
-                entity_id: switch.garage_door_switch
+                entity_id: switch.garage_door_switch_2
             hold_action:
               action: more-info
-            entity: binary_sensor.garage_door_sensor
+            entity: binary_sensor.garage_door_sensor_2
+          - type: entities
+            entities:
+              - sensor.garage_temperature
 
