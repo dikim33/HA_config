@@ -176,6 +176,8 @@ views:
           - type: iframe
             url: https://embed.windy.com/embed2.html?lat=39.130203&lon=-86.518952&zoom=5&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-36.851&detailLon=174.768&metricWind=default&metricTemp=default&radarRange=-1
             aspect_ratio: 80%
+          - type: media-control
+            entity: media_player.apple_tv
   - path: test
     title: Test
     cards:
@@ -233,6 +235,8 @@ views:
         title: Office
       - type: media-control
         entity: media_player.samsung_un32eh5300
+      - type: media-control
+        entity: media_player.apple_tv
       - type: entity-button
         name: Garage
         tap_action:
@@ -276,4 +280,7 @@ views:
           - type: entities
             entities:
               - sensor.garage_temperature
+              - sensor.mailbox_template
+          - type: media-control
+            entity: media_player.apple_tv
 
