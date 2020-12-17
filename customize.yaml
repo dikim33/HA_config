@@ -28,7 +28,7 @@ sensor.r7000_gateway_packets_s_sent:
   friendly_name: Sent
   
 sensor.mfc_465cn_status:
-  friendly_name: Status
+  friendly_name: MFC465 Status
 sensor.mfc_465cn_page_counter:
   friendly_name: Page Counter
 sensor.mfc_465cn_black_ink_remaining:
@@ -51,7 +51,7 @@ sensor.hp_officejet_pro_8600_magenta_ink:
 sensor.hp_officejet_pro_8600_yellow_ink:
   friendly_name: Yellow
 sensor.hp_officejet_pro_8600:
-  friendly_name: Status
+  friendly_name: HP8600 Status
   
 sensor.nest_thermostat_humidity:
   friendly_name: Humidity
@@ -76,6 +76,9 @@ switch.donginn_room_3:
     icon_color: >
       if (state === 'on') return 'rgb(255,215,0)';
       return 'grey';
+      
+switch.sonoff_1000facb40:
+  friendly_name: Sonoff switch
     # rgb_color: >
     #   if (state ==  'on'){
     #     return [255,255,0];

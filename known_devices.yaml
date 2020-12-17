@@ -54,3 +54,10 @@ echo_show_5_chs:
   icon:
   picture:
   track: true
+
+laptop_7ngivmgm:
+  name: LAPTOP-7NGIVMGM
+  mac: BT_B0:C0:90:1B:FE:80
+  icon:
+  picture:
+  track: true

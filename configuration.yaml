@@ -139,3 +139,7 @@ apple_tv:
 media_player:
   - platform: vlc
     name: speaker_1
+    
+sonoff:
+  username: !secret sonoff_username
+  password: !secret sonoff_password

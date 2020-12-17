@@ -156,6 +156,7 @@ views:
           - type: entities
             entities:
               - switch.donginn_room_3
+              - switch.sonoff_1000facb40
             title: Switch
             style: |
               .card-header {
@@ -232,6 +233,7 @@ views:
         entities:
           - sensor.office_temperature
           - switch.donginn_room_3
+          - switch.sonoff_1000facb40
         title: Office
       - type: media-control
         entity: media_player.samsung_un32eh5300
