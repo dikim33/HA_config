@@ -77,8 +77,8 @@ switch.donginn_room_3:
       if (state === 'on') return 'rgb(255,215,0)';
       return 'grey';
       
-switch.sonoff_1000facb40:
-  friendly_name: Sonoff switch
+switch.tasmota_2:
+  friendly_name: Sonoff Switch
     # rgb_color: >
     #   if (state ==  'on'){
     #     return [255,255,0];
