@@ -143,3 +143,21 @@ media_player:
 sonoff:
   username: !secret sonoff_username
   password: !secret sonoff_password
+  
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+  
+notify:
+  - name: email_notification
+    platform: smtp
+    server: smtp.gmail.com
+    port: 587
+    timeout: 15
+    sender: !secret sender_email
+    encryption: starttls
+    username: !secret sender_email
+    password: !secret sender_pass
+    recipient:
+      - dikim33@gmail.com
+    sender_name: My Home Assistant
