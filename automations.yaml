@@ -105,12 +105,16 @@
   description: Send notification when garage door is open
   trigger:
   - platform: state
-    entity_id: binary_sensor.garage_door_sensor
+    entity_id: binary_sensor.garage_door_sensor_2
     from: 'off'
     to: 'on'
   condition: []
   action:
   - service: notify.mobile_app_lm_x410um
+    data:
+      title: Garage door is open
+      message: Someone opened the garage door!
+  - service: notify.email_notification
     data:
       title: Garage door is open
       message: Someone opened the garage door!
