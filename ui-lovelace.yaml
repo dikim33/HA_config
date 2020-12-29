@@ -26,15 +26,17 @@ resources:
 views:
   - path: default_view
     title: Home
+    visible:
+      - user: 80a7ab9f14574e3ab15a36bcb3776503
     badges:
       - entity: binary_sensor.updater
       #- entity: binary_sensor.office_ding
       #- entity: binary_sensor.office_motion
       - entity: person.donginn_kim
-      - entity: sensor.us_coronavirus_confirmed
-      - entity: sensor.us_coronavirus_current
-      - entity: sensor.us_coronavirus_recovered
-      - entity: sensor.us_coronavirus_deaths
+    #   - entity: sensor.us_coronavirus_confirmed
+    #   - entity: sensor.us_coronavirus_current
+    #   - entity: sensor.us_coronavirus_recovered
+    #   - entity: sensor.us_coronavirus_deaths
       #- entity: sensor.office_battery
       #- entity: sensor.office_volume
       #- entity: sensor.office_last_activity
@@ -156,7 +158,8 @@ views:
           - type: entities
             entities:
               - switch.donginn_room_3
-              - switch.sonoff_1000facb40
+              - switch.tasmota_2
+              - switch.tasmota
             title: Switch
             style: |
               .card-header {
@@ -181,6 +184,8 @@ views:
             entity: media_player.apple_tv
   - path: test
     title: Test
+    visible:
+      - user: 80a7ab9f14574e3ab15a36bcb3776503    
     cards:
       - type: picture-entity
         entity: camera.front_door
@@ -257,6 +262,9 @@ views:
         url: http://office_temperature.local/
   - path: main
     title: Main
+    badges:
+      - entity: person.donginn_kim
+      - entity: person.minah
     cards:
       - type: picture-entity
         entity: camera.front_door
@@ -285,4 +293,6 @@ views:
               - sensor.mailbox_template
           - type: media-control
             entity: media_player.apple_tv
+          - type: media-control
+            entity: media_player.spotify_kimele2003
 
