@@ -126,13 +126,26 @@
   - platform: mqtt
     topic: hass/mailbox/state
     payload: New Mail
-  condition: []
+  condition:
+  - condition: state
+    entity_id: sensor.mailbox
+    state: New Mail
   action:
+  - service: counter.increment
+    data: {}
+    entity_id: counter.mbox_notify_counter
+  - condition: numeric_state
+    entity_id: counter.mbox_notify_counter
+    below: '1'
   - service: persistent_notification.create
     data:
       notification_id: 1234
       title: You have got a mail
       message: New delivery is in the mailbox!
+  - service: notify.email_notification
+    data:
+      title: New mail is in the mailbox
+      message: Yay! New mail is in the mailbox. Check it out
   - service: notify.mobile_app_lm_x410um
     data:
       notification_id: 1234
@@ -156,4 +169,7 @@
       topic: hass/mailbox/state
       payload: Check
       retain: false
+  - service: counter.reset
+    data: {}
+    entity_id: counter.mbox_notify_counter
   mode: single

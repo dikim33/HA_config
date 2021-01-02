@@ -72,6 +72,7 @@ views:
             entities:
               - sensor.garage_temperature
               - sensor.mailbox_template
+            #   - counter.mbox_notify_counter
       - type: 'custom:vertical-stack-in-card'
         title: Family room
         cards:
@@ -158,8 +159,12 @@ views:
           - type: entities
             entities:
               - switch.donginn_room_3
-              - switch.tasmota_2
-              - switch.tasmota
+              - entity: switch.sonoff01
+                name: HDD / Ring extension
+              - entity: switch.sonoff02
+                name: Ring Power
+              - entity: switch.sonoff03
+                name: IoT TH Sensors
             title: Switch
             style: |
               .card-header {

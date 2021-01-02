@@ -161,3 +161,10 @@ notify:
     recipient:
       - dikim33@gmail.com
     sender_name: My Home Assistant
+    
+counter:
+  mbox_notify_counter:
+    name: Mailbox Counter
+    icon: mdi:timer
+    initial: 0
+    step: 1
